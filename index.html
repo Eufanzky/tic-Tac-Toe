@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./src/style.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&display=swap" rel="stylesheet"
+    >
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">TIC TAC TOE</h1>
+    </header>
+    <main class="main">
+        <section class="game-container"> 
+            <div class="game-container__box game-container__border_top-left"></div>
+            <div class="game-container__box game-container__border_top"></div>
+            <div class="game-container__box game-container__border_top-right"></div>
+            <div class="game-container__box game-container__border_left"></div>
+            <div class="game-container__box"></div>
+            <div class="game-container__box game-container__border_right"></div>
+            <div class="game-container__box game-container__border_bottom-left"></div>
+            <div class="game-container__box game-container__border_bottom"></div>
+            <div class="game-container__box game-container__border_bottom-right"></div>
+            <div class="player-boxes player1-box">
+                <h3>x (you)</h3>
+                <p>Victories: 3</p>
+                <p>Defeats: 10</p>
+            </div>
+            <div class="tie-box">
+                <h3>Ties</h3>
+                <p>5</p>
+            </div>
+            <div class="player-boxes player2-box">
+                <h3>p (cpu)</h3>
+                <p>Victories: 5</p>
+                <p>Defeats: 1</p>
+            </div>
+        </section>
+        <div>
+            <button>Comenzar!</button>
+            <button></button>
+        </div>
+    </main>
+</body>
+</html>

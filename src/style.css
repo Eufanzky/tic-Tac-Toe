@@ -1,0 +1,80 @@
+/*colores*/
+:root {
+    --red: #FFD6E0;
+    --light-green: #C1FBA4;
+    --dark-green: #7BF1A8;
+    --blue: #90F1EF;
+    --yellow: #FFEF9F;
+    --black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--yellow);
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.header {
+    width: 100vw;
+    height: 20vh;
+}
+.header__title {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    text-shadow: -2px 2px 5px black;
+    text-decoration: underline;
+}
+
+
+.main { 
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*tic tac toe container*/
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+
+    gap: 5px;
+}
+
+/*tic tac toe boxes*/
+.game-container__box {
+    border: 3px solid var(--black);
+    transition: 0.2s;
+    background-color: var(--dark-green);
+}
+.game-container__box:hover {
+    background-color: var(--dark-green);
+    cursor: pointer;
+}
+
+
+.player-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.player1-box {
+    background-color: var(--red);
+}
+.player2-box {
+    background-color: var(--blue);
+}
+.player-boxes h3 {
+    font-size: 1rem;
+}
+
