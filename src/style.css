@@ -42,13 +42,17 @@ body {
 }
 
 .switch-button {
+    font-size: 0.9rem;
+
     background-color: transparent;
     border: none;
     margin-bottom: 50px;
+
+    transition: 0.2s;
 }
 .switch-button:hover {
-    color: var(--red);
-    text-shadow: -1px -1px 1px var(--black);
+    font-size: 1.2rem;
+    color: var(--dark-green);
     cursor: pointer;
 }
 
@@ -61,6 +65,8 @@ body {
     gap: 10px;
 
     place-items: center;
+
+    position: relative;
 }
 
 /*tic tac toe boxes*/
@@ -69,6 +75,13 @@ body {
     box-shadow: 0px 10px 5px var(--black);
     transition: 0.2s;
     background-color: var(--dark-green);
+
+    font-size: 3rem;
+    font-weight: bolder;
+    color: var(--red);
+    text-shadow: -0px 5px 5px black;
+
+
 }
 .game-container__box:hover {
     background-color: var(--light-green);
@@ -109,6 +122,14 @@ body {
 }
 
 /*buttons div*/
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .buttons button {
     width: 100px;
     height: 50px;
@@ -125,11 +146,63 @@ body {
     color: var(--black);
     cursor: pointer;
 }
-.button__start--margin-right {
-    margin-right: 10px;
+
+
+.line { 
+    position: absolute;
+    background-color: red;
+    border: 10px;
 }
-.button__history--margin-left {
-    margin-left: 10px;
+.row1-line {   
+    width: 100%;
+    height: 10px;
+    top: 10%;
+}
+.row2-line {
+    width: 100%;
+    height: 10px;
+    top: 36%;
+}
+.row3-line {
+    width: 100%;
+    height: 10px;
+    top: 61%;
+}
+.column1-line {
+    width: 9px;
+    height: 75%;
+    left: 15%;
+    top: 0%;
+}
+.column2-line {
+    width: 9px;
+    height: 75%;
+    left: 49%;
+    top: 0%;
+}
+.column3-line {
+    width: 9px;
+    height: 75%;
+    left: 83%;
+    top: 0%;
+}
+.diagonal1-line {
+    width: 9px;
+    height: 75%;
+    left: 49%;
+    top: 0%;
+    rotate: 45deg;
+}
+.diagonal2-line {
+    width: 9px;
+    height: 75%;
+    left: 49%;
+    top: 0%;
+    rotate: -45deg;
+}
+
+.element--display-none {
+    display: none;
 }
 
 
@@ -143,5 +216,8 @@ body {
     .game-container__box--items-centered {
         width: 150px;
         height: 150px;
+    }
+    .buttons {
+        width: 30%;
     }
 }

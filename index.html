@@ -19,7 +19,7 @@
         <h1 class="header__title">TIC TAC TOE</h1>
     </header>
     <main class="main">
-        <button class="switch-button">Switch symbols</button>
+        <button class="switch-button" id="switch-button">Switch symbols</button>
         <section class="game-container"> 
             <div class="game-container__box--items-centered game-container__box"></div>
             <div class="game-container__box--items-centered game-container__box"></div>
@@ -44,14 +44,24 @@
                 <p>Victories: 5</p>
                 <p>Defeats: 1</p>
             </div>
+            <div class="element--display-none line row1-line"></div>
+            <div class="element--display-none line row2-line"></div>
+            <div class="element--display-none line row3-line"></div>
+            <div class="element--display-none line column1-line"></div>
+            <div class="element--display-none line column2-line"></div>
+            <div class="element--display-none line column3-line"></div>
+            <div class="element--display-none line diagonal1-line"></div>
+            <div class="element--display-none line diagonal2-line"></div>
         </section>
         <section class="buttons">
-            <button class="button__start--margin-right">Comenzar!</button>
-            <button class="button__history--margin-left">Ver Historial</button>
+            <button class="button__start--margin-right" id="start-button">Start!</button>
+            <button class="button__history--margin-left" id="history-button">Reset</button>
+            <button class="button__history--margin-left" id="history-button">Check history</button>
         </section>
         <section class="history-section">
 
         </section>
     </main>
+    <script src="./src/index.js"></script>
 </body>
 </html>
