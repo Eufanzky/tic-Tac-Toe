@@ -35,46 +35,113 @@ body {
 
 
 .main { 
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
+
+.switch-button {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 50px;
+}
+.switch-button:hover {
+    color: var(--red);
+    text-shadow: -1px -1px 1px var(--black);
+    cursor: pointer;
+}
+
 /*tic tac toe container*/
 .game-container {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
 
-    gap: 5px;
+    gap: 10px;
+
+    place-items: center;
 }
 
 /*tic tac toe boxes*/
 .game-container__box {
-    border: 3px solid var(--black);
+    border-radius: 10px;
+    box-shadow: 0px 10px 5px var(--black);
     transition: 0.2s;
     background-color: var(--dark-green);
 }
 .game-container__box:hover {
-    background-color: var(--dark-green);
+    background-color: var(--light-green);
     cursor: pointer;
 }
 
-
+/*player 1 and 2 stats*/
 .player-boxes {
+    border-radius: 10px;
+    box-shadow: 0px 10px 5px var(--black);
+    transition: 0.2s;
+
+}
+.player-boxes h3 {
+    font-size: 1rem;
+}
+.player1-box {
+    background-color: var(--red);
+}
+.tie-box {
+    border-radius: 10px;
+    box-shadow: 0px 10px 5px var(--black);
+    background-color: var(--yellow);
+}
+.player2-box {
+    background-color: var(--blue);
+}
+
+
+/*this style centers all the content on boxes from game container*/
+.game-container__box--items-centered {
+    width: 90px;
+    height: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
-.player1-box {
-    background-color: var(--red);
+
+/*buttons div*/
+.buttons button {
+    width: 100px;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    background-color: var(--black);
+    color: var(--blue);
+
+    box-shadow: 0px 5px 0px var(--blue);
 }
-.player2-box {
-    background-color: var(--blue);
+.buttons button:hover {
+    background-color: var(--dark-green);
+    color: var(--black);
+    cursor: pointer;
 }
-.player-boxes h3 {
-    font-size: 1rem;
+.button__start--margin-right {
+    margin-right: 10px;
+}
+.button__history--margin-left {
+    margin-left: 10px;
 }
 
+
+/*-------------MEDIA QUERIES------------*/
+@media (min-width: 600px) {
+    .header {
+        width: 100vw;
+        height: 8vh;
+    }
+
+    .game-container__box--items-centered {
+        width: 150px;
+        height: 150px;
+    }
+}
