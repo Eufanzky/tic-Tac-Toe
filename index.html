@@ -18,8 +18,8 @@
     <header class="header">
         <h1 class="header__title">TIC TAC TOE</h1>
     </header>
-    <main class="main">
-        <h2 class="winner"></h2>
+    <main class="main" id="blur">
+        
         <button class="switch-button" id="switch-button">Switch symbols</button>
         <section class="game-container"> 
             <div class="game-container__box--items-centered game-container__box"></div>
@@ -63,6 +63,13 @@
 
         </section>
     </main>
+    <div class="popup element--visibility-hidden">
+        <h3>Winner!</h3>
+        <p class="winner">winner-name</p>
+        <button id="continue-button">Continue</button>
+    </div>
+    
+    <script src="./src/nodes.js"></script>
     <script src="./src/index.js"></script>
 </body>
 </html>

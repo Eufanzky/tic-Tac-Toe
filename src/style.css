@@ -41,6 +41,54 @@ body {
     align-items: center;
 }
 
+/*--------------------------POPUP WINDOW-------------------------*/
+.popup {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--red);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    border-radius: 25px;
+
+    box-shadow: -1px 1px 10px var(--black);
+
+    transition: 0.5s;
+}
+.popup button {
+    width: 150px;
+    height: 50px;
+    background-color: var(--light-green);
+    border: none;
+    border: 1px solid var(--black);
+}
+.popup button:hover {
+    cursor: pointer;
+    background-color: var(--blue);
+    
+}
+
+.blur-effect {
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.element--visibility-hidden {
+    visibility: hidden;
+}
+
+/*-----------------------------------------------------------------*/
+
+
+
 .switch-button {
     font-size: 0.9rem;
 

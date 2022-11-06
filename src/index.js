@@ -1,19 +1,6 @@
-//buttons
-const switchButton = document.querySelector('#switch-button');
-const startButton = document.querySelector('#start-button');
-const historyButton = document.querySelector('#history-button');
-
-//lines wehbn winning
-const lines = document.querySelectorAll('.line');
-let linesArray = [...lines];
-
-//divs
-const divs = document.querySelectorAll('.game-container__box');
-let divsArray = [...divs];
-
-//switch to know the turn
+//switch for knowing the turn
 let sw = 0;
-
+let trun = '';//to know whos playing
 
 const draw = (event) => {
     if (sw === 0) {
@@ -27,7 +14,6 @@ const draw = (event) => {
     }
 
     verifyGameState();
-
 }
 divsArray.forEach(div => {
     div.addEventListener('click', draw);
@@ -35,7 +21,6 @@ divsArray.forEach(div => {
 
 
 //verify if there is a winner
-
 const verifyGameState = () => {
     let game = divsArray.map(item => {
         return item.textContent;
@@ -106,6 +91,7 @@ const verifyDiagonals = (game, value) => {
 }
 
 
+//finish game
 const finishGame = (winner) => {
     divsArray.forEach(div => {
         div.removeEventListener('click', draw);
@@ -116,5 +102,21 @@ const finishGame = (winner) => {
     } else {
         const winnerElement = document.querySelector('.winner');
         winnerElement.textContent = `Winner! ${winner}`;
+
+        toggle();
     }
 }
+const toggle = () => {
+    const blur = document.querySelector('#blur');
+    blur.classList.toggle('blur-effect');
+
+    const popup = document.querySelector('.popup');
+    popup.classList.toggle('element--visibility-hidden');
+
+    popup.addEventListener('click',toggle);
+}
+
+
+/*
+    Reset button
+*/
