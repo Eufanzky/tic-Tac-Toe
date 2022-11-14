@@ -1,5 +1,5 @@
-let sw = 0;//switch for knowing the turn
-let plays = 0; //number of plays
+let turn = 1;//turn 1 for p1 and 2 for p2
+let numberOfPlays = 0;
 let rounds = 0; //still not used for nothing
 
 //pplayer 1 and 2 objects
@@ -15,19 +15,19 @@ let nOfTies = 0;
 
 
 const draw = (event) => {
-    if (sw === 0) {
+    if (turn === 1) {
         event.target.textContent = 'x';
         event.target.removeEventListener('click', draw);
-        sw = 1;
-        plays++;
-    } else if (sw === 1) {
+        turn = 2;
+        numberOfPlays++;
+    } else if (turn === 2) {
         event.target.textContent = 'o';
         event.target.removeEventListener('click', draw);
-        sw = 0;  
-        plays++;    
+        turn = 1;  
+        numberOfPlays++;    
     }
 
-    verifyGameState(plays);
+    verifyGameState(numberOfPlays);
 }
 divsArray.forEach(div => {
     div.addEventListener('click', draw);
@@ -101,12 +101,15 @@ const verifyDiagonals = (game, value) => {
 
 
 //finishes the game
-const finishGame = () => {
+const finishGame = (tie = false) => {
     divsArray.forEach(div => {
         div.removeEventListener('click', draw);
     });
 
-    if(plays%2!==0) {
+    if (tie === true) {
+        nOfTies++;
+        numberOfTies.textContent = `${nOfTies}`;
+    } else if(numberOfPlays%2!==0) {
         const winnerElement = document.querySelector('.winner');
         winnerElement.textContent = `Winner! ${p1.getName()}`;
         p1Wins++;
@@ -115,7 +118,7 @@ const finishGame = () => {
         p2.setDefeats(p2Defeats);
         updateBox();
         toggle();
-    } else if(plays%2===0){
+    } else if(numberOfPlays%2===0){
         const winnerElement = document.querySelector('.winner');
         winnerElement.textContent = `Winner! ${p2.getName()}`;
         p2Wins++;
@@ -162,9 +165,8 @@ const resetGame = () => {
     linesArray.forEach(line => {
         line.classList.remove('element--display-none');
         line.classList.add('element--display-none');
-
     })
-    sw = 0;
-    plays = 0;
+    turn = 1;
+    numberOfPlays = 0;
 }
 resetButton.addEventListener('click', resetGame);
