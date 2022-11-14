@@ -1,16 +1,18 @@
-//switch for knowing the turn
-let sw = 0;
-
-let plays = 0;
+let sw = 0;//switch for knowing the turn
+let plays = 0; //number of plays
+let rounds = 0; //still not used for nothing
 
 //pplayer 1 and 2 objects
 let p1 = new Player('you', 0, 0);
 let p2 = new Player('cpu', 0, 0);
+
+//data
 let p1Wins = 0;
 let p2Wins = 0;
 let p1Defeats = 0;
 let p2Defeats = 0;
 let nOfTies = 0;
+
 
 const draw = (event) => {
     if (sw === 0) {
@@ -99,7 +101,7 @@ const verifyDiagonals = (game, value) => {
 
 
 //finishes the game
-const finishGame = (tie) => {
+const finishGame = () => {
     divsArray.forEach(div => {
         div.removeEventListener('click', draw);
     });
@@ -133,9 +135,6 @@ const toggle = () => {
 
     popup.addEventListener('click',toggle);
 }
-
-
-
 //PLAYER BOXES and TIES
 
 const updateBox = () => {
@@ -165,6 +164,7 @@ const resetGame = () => {
         line.classList.add('element--display-none');
 
     })
+    sw = 0;
     plays = 0;
 }
 resetButton.addEventListener('click', resetGame);
