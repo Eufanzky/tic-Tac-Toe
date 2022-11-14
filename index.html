@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,18 +32,18 @@
             <div class="game-container__box--items-centered game-container__box"></div>
             <div class="game-container__box--items-centered game-container__box"></div>
             <div class="game-container__box--items-centered player-boxes player1-box">
-                <h3>x (you)</h3>
-                <p>Victories: 3</p>
-                <p>Defeats: 10</p>
+                <h3 id="player1-name">x (you)</h3>
+                <p id="player1-victories">Victories: 3</p>
+                <p id="player1-defeats">Defeats: 10</p>
             </div>
             <div class="game-container__box--items-centered tie-box">
                 <h3>Ties</h3>
-                <p>5</p>
+                <p id="number-of-ties">5</p>
             </div>
             <div class="game-container__box--items-centered player-boxes player2-box">
-                <h3>o (cpu)</h3>
-                <p>Victories: 5</p>
-                <p>Defeats: 1</p>
+                <h3 id="player2-name">o (cpu)</h3>
+                <p id="player2-victories">Victories: 5</p>
+                <p id="player2-defeats">Defeats: 1</p>
             </div>
             <div class="element--display-none line row1-line"></div>
             <div class="element--display-none line row2-line"></div>
@@ -55,8 +55,7 @@
             <div class="element--display-none line diagonal2-line"></div>
         </section>
         <section class="buttons">
-            <button class="button__start--margin-right" id="start-button">Start!</button>
-            <button class="button__history--margin-left" id="history-button">Reset</button>
+            <button class="button__history--margin-left" id="reset-button">Reset</button>
             <button class="button__history--margin-left" id="history-button">Check history</button>
         </section>
         <section class="history-section">
@@ -70,6 +69,7 @@
     </div>
     
     <script src="./src/nodes.js"></script>
+    <script src="./src/Player.js"></script>
     <script src="./src/index.js"></script>
 </body>
 </html>
