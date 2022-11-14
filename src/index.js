@@ -43,15 +43,6 @@ const verifyGameState = () => {
     verifyColumns(game, 'o');
     verifyDiagonals(game, 'x');
     verifyDiagonals(game, 'o');
-
-    if(verifyRows(game,'x') || verifyRows(game,'o') || verifyColumns(game, 'x') || verifyColumns(game, 'o')
-    || verifyDiagonals(game, 'x') || verifyDiagonals(game, 'o')) {
-        console.log('hay un winner');
-    } else {
-        nOfTies++;
-        numberOfTies.textContent = `${nOfTies}`;
-    }
-
 }
 
 const verifyRows = (game, value) => {
@@ -65,55 +56,45 @@ const verifyRows = (game, value) => {
     if(JSON.stringify(gameRow1) === JSON.stringify(row))  {
         const rowRedLine = document.querySelector('.row1-line');
         rowRedLine.classList.toggle('element--display-none');
-        finishGame();
-        return true;
+        finishGame();  
     } else if (JSON.stringify(gameRow2) === JSON.stringify(row) ) {
         const rowRedLine = document.querySelector('.row2-line');
         rowRedLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
-
     } else if (JSON.stringify(gameRow3) === JSON.stringify(row)) {
         const rowRedLine = document.querySelector('.row3-line');
         rowRedLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
-
     }
-    return false;
+    
 }
 const verifyColumns = (game, value) => {
     if(game[0] === value && game[3] === value && game[6] === value) {
         const columnLine = document.querySelector('.column1-line')
         columnLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
     } else if (game[1] === value && game[4] === value && game[7] === value) {
         const columnLine = document.querySelector('.column2-line');
         columnLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
     } else if(game[2] === value && game[5] === value && game[8] === value) {
         const columnLine = document.querySelector('.column3-line');
         columnLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
     }
-    return false;
+
 }
 const verifyDiagonals = (game, value) => {
     if(game[0] === value && game[4] === value && game[8] === value) {
         const diagonalLine = document.querySelector('.diagonal1-line');
         diagonalLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
     } else if (game[2] === value && game[4] === value && game[6] === value) {
         const diagonalLine = document.querySelector('.diagonal2-line');
         diagonalLine.classList.toggle('element--display-none');
         finishGame();
-        return true;
     }
-    return false;
+
 }
 
 
