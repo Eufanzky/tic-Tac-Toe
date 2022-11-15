@@ -26,6 +26,10 @@ class Player {
     setDefeats(defeats) {
         this.defeats = defeats;
     }
+    setSymbol(symbol) {
+        this.symbol = symbol;
+    }
+
 
     increaseWins() {
         this.wins++;

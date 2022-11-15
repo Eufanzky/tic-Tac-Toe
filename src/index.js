@@ -12,12 +12,12 @@ let nOfTies = 0;
 
 const draw = (event) => {
     if (turn === 1) {
-        event.target.textContent = 'x';
+        event.target.textContent = `${p1.getSymbol()}`;
         event.target.removeEventListener('click', draw);
         turn = 2;
         numberOfPlays++;
     } else if (turn === 2) {
-        event.target.textContent = 'o';
+        event.target.textContent = `${p2.getSymbol()}`;
         event.target.removeEventListener('click', draw);
         turn = 1;  
         numberOfPlays++;    
@@ -121,6 +121,7 @@ const finishGame = (value) => {
         nOfTies++;
         numberOfTies.textContent = `${nOfTies}`;
         sw=1;
+        rounds++;
     } else if (sw===0 && value === p1.getSymbol()) {
         divsArray.forEach(div => {
             div.removeEventListener('click', draw);
@@ -132,6 +133,7 @@ const finishGame = (value) => {
         updateBox();
         toggle();
         sw=1;
+        rounds++;
     } else if (sw===0 && value === p2.getSymbol()){
         divsArray.forEach(div => {
             div.removeEventListener('click', draw);
@@ -143,6 +145,7 @@ const finishGame = (value) => {
         updateBox();
         toggle();
         sw=1;
+        rounds++;
     }
 }
 const toggle = () => {
@@ -157,11 +160,11 @@ const toggle = () => {
 //PLAYER BOXES and TIES
 
 const updateBox = () => {
-    player1Name.textContent = `x (${p1.getName()})`;
+    player1Name.textContent = `${p1.getSymbol()} (${p1.getName()})`;
     player1Victories.textContent = `Victories: ${p1.getWins()}`;
     player1Defeats.textContent = `Defeats: ${p1.getDefeat()}`;
     
-    player2Name.textContent = `o (${p2.getName()})`;
+    player2Name.textContent = `${p2.getSymbol()} (${p2.getName()})`;
     player2Victories.textContent = `Victories: ${p2.getWins()}`;
     player2Defeats.textContent = `Defeats: ${p2.getDefeat()}`;
 }
@@ -188,3 +191,19 @@ const resetGame = () => {
 }
 resetButton.addEventListener('click', resetGame);
 
+
+switchButton.addEventListener('click', (event) => {
+    if(numberOfPlays===0) {
+        let symbol1 = p1.getSymbol();
+        let symbol2 = p2.getSymbol();
+        p1.setSymbol(symbol2);
+        p2.setSymbol(symbol1);
+        updateBox();
+    } else {
+        console.log('else');
+        event.target.textContent=`You cant switch symbols right now`;
+        setTimeout(()=>{
+            event.target.textContent=`Switch symbols`;
+        },3000)   
+    }
+})
