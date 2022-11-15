@@ -110,18 +110,18 @@ const verifyDiagonals = (game, value) => {
     }
 }
 
-
+let sw = 0;
 //finishes the game
 const finishGame = (value) => {
-
-    if (numberOfPlays===9 && linesArray.every( line => {return [...line.classList][2] === 'element--display-none'} )) {
+    
+    if (sw===0 && numberOfPlays===9 && linesArray.every( line => {return [...line.classList][2] === 'element--display-none'} )) {
         divsArray.forEach(div => {
             div.removeEventListener('click', draw);
         });
         nOfTies++;
         numberOfTies.textContent = `${nOfTies}`;
-
-    } else if (value === p1.getSymbol()) {
+        sw=1;
+    } else if (sw===0 && value === p1.getSymbol()) {
         divsArray.forEach(div => {
             div.removeEventListener('click', draw);
         });
@@ -131,8 +131,8 @@ const finishGame = (value) => {
         p2.increaseDefeats();
         updateBox();
         toggle();
-
-    } else if (value === p2.getSymbol()){
+        sw=1;
+    } else if (sw===0 && value === p2.getSymbol()){
         divsArray.forEach(div => {
             div.removeEventListener('click', draw);
         });
@@ -142,6 +142,7 @@ const finishGame = (value) => {
         p1.increaseDefeats();
         updateBox();
         toggle();
+        sw=1;
     }
 }
 const toggle = () => {
@@ -183,6 +184,7 @@ const resetGame = () => {
     })
     turn = 1;
     numberOfPlays = 0;
+    sw=0;
 }
 resetButton.addEventListener('click', resetGame);
 
