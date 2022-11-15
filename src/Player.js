@@ -1,11 +1,15 @@
 class Player {
-    constructor(name, wins, defeats) {
+    constructor(name, symbol, wins, defeats) {
         this.name = name;
+        this.symbol = symbol;
         this.wins = wins;
         this.defeats = defeats;
     }
     getName() {
         return this.name;
+    }
+    getSymbol() {
+        return this.symbol;
     }
     getWins() {
         return this.wins;
@@ -23,6 +27,12 @@ class Player {
         this.defeats = defeats;
     }
 
+    increaseWins() {
+        this.wins++;
+    }
+    increaseDefeats() {
+        this.defeats++;
+    }
     show() {
         console.log(`Name: ${this.name}`);
         console.log(`Wins: ${this.wins}`);
